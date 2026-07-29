@@ -1,13 +1,6 @@
 from fastapi import FastAPI
-from pydantic import BaseModel
-
-
-class StatusResponse(BaseModel):
-    status: str
+from routers.health_router import router as health_router
 
 
 app = FastAPI()
-
-@app.get("/", response_model=StatusResponse)
-def read_root() -> StatusResponse:
-    return {"status": "ok"}
+app. include_router(health_router)
