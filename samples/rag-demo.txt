@@ -1,0 +1,12 @@
+This sample describes the Document Q&A API.
+
+The service uses PostgreSQL with the pgvector extension to store document
+chunks and embeddings. It embeds document text and user questions with
+text-embedding-3-small, using vectors with 1536 dimensions. Search orders
+eligible chunks by cosine distance and limits the results with top-k retrieval.
+
+Each chunk records its source document and, for PDF files, its one-based page
+number. The API filters retrieval by the authenticated user's document owner
+identifier and returns citation excerpts from the retrieved chunks.
+
+The sample does not contain the CTO's favorite color.
